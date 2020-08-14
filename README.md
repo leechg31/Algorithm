@@ -2,4 +2,4 @@
 
 my own algorithm study
 
-BOJ
+range based for : ex)for(int i : vector)
