@@ -7,7 +7,7 @@
 
 using namespace std;
 
-stack<int> st;
+std::stack<int> S;
 
 int main()
 {
@@ -15,32 +15,53 @@ int main()
 	cin.tie(0);
 	cout.tie(0);
 
-	while (1)
-	{
-		string cmd;
-		cin >> cmd;
+	int N;
+	cin >> N;
 
-		if (cmd == "push")
+	for (int i = 0; i < N; i++)
+	{
+		string tmp;
+		cin >> tmp;
+
+		if (tmp == "push")
 		{
 			int num;
 			cin >> num;
-			st.push(num);
-		}
 
-		else if (cmd == "pop")
+			S.push(num);
+		}
+		else if (tmp == "pop")
 		{
-			cout << (st.empty() ? -1 : st.top()) << "\n";
-			if (!st.empty())
-				st.pop();
+			if (S.empty())
+				cout << "-1\n";
+			else
+			{
+				cout << S.top() << "\n";
+				S.pop();
+			}
 		}
-
-		else if (cmd == "top")
-			cout << (st.empty() ? -1 : st.top()) << "\n";
-
-		else if (cmd == "size")
-			cout << st.size() << "\n";
-
-		else if (cmd == "empty")
-			cout << st.empty() << "\n";
+		else if (tmp == "size")
+		{
+			int num = S.size();
+			cout << num << "\n";
+		}
+		else if (tmp == "empty")
+		{
+			if (S.empty())
+				cout << "1\n";
+			else
+				cout << "0\n";
+		}
+		else if (tmp == "top")
+		{
+			if (S.empty())
+				cout << "-1\n";
+			else
+			{
+				cout << S.top() << "\n";
+			}
+		}
 	}
+
+	return 0;
 }
