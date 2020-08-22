@@ -8,29 +8,35 @@
 #include <string>
 #include <vector>
 #include <stack>
+
+using namespace std;
+
 int main()
 {
-	int N;
-	cin >> N;
+	int N = 0;
 
-	stack<char> S;
-	string tmp;
+	cin >> N;
+	cin.ignore();
 
 	for (int i = 0; i < N; i++)
 	{
+		stack<char> st;
+		string tmp;
 		cin >> tmp;
 
-		for (int j = 0; j < tmp.size(); j++)
+		for (int j = 0; j < tmp.length(); j++)
 		{
-			if (S.empty() || tmp[j] == '(')
-				S.push(tmp[j]);
-			else if (S.top() == '(')
-				S.pop();
+			if (st.empty() || tmp[j] == '(') 
+				st.push(tmp[j]);
+			else if (st.top() == '(') 
+				st.pop();
 		}
 
-		if (S.empty())
+		if (st.empty()) 
 			cout << "YES" << '\n';
-		else
+		else 
 			cout << "NO" << '\n';
 	}
+
+	return 0;
 }
