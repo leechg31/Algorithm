@@ -1,0 +1,36 @@
+#include <iostream> 
+#include <cstdio>
+#include <string>
+#include <vector>
+#include <stack>
+#include <iostream> 
+#include <cstdio>
+#include <string>
+#include <vector>
+#include <stack>
+int main()
+{
+	int N;
+	cin >> N;
+
+	stack<char> S;
+	string tmp;
+
+	for (int i = 0; i < N; i++)
+	{
+		cin >> tmp;
+
+		for (int j = 0; j < tmp.size(); j++)
+		{
+			if (S.empty() || tmp[j] == '(')
+				S.push(tmp[j]);
+			else if (S.top() == '(')
+				S.pop();
+		}
+
+		if (S.empty())
+			cout << "YES" << '\n';
+		else
+			cout << "NO" << '\n';
+	}
+}
